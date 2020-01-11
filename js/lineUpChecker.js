@@ -7,7 +7,13 @@ function lineUpCheck() {
     if(serieALineUp && championsCupLineUp) {
         validateLineUpComplete(serieALineUp, championsCupLineUp);
     } else if (serieALineUp) {
-        validateLineUpChampionship(serieALineUp);
+        if(validateLineUp(serieALineUp)) {
+            failLabel.setAttribute("hidden", true);
+            successLabel.removeAttribute("hidden");
+        } else {
+            successLabel.setAttribute("hidden", true);
+            failLabel.removeAttribute("hidden"); 
+        }
     } else {
         console.log("ERROR");
     }
@@ -16,12 +22,16 @@ function lineUpCheck() {
 function validateLineUpComplete(serieALineUp, championsCupLineUp) {
     console.log(championsCupLineUp);
     console.log(serieALineUp);
-    if(validateLineUpChampionship(serieALineUp)) {
-        
+    if(validateLineUp(serieALineUp)) {
+        var titolariSerieA = titolari;
+        var panchinariSerieA = panchinari;
+        if(validateLineUp(championsCupLineUp)) {
+
+        }
     }
 }
 
-function validateLineUpChampionship(serieALineUp) {
+function validateLineUp(serieALineUp) {
     serieALineUp = serieALineUp.replace(/ +/g, "");
     serieALineUp = serieALineUp.replace(/(\r\n|\n|\r|,)/gm, "-");
     var array = serieALineUp.split("-");
