@@ -31,10 +31,10 @@ function validateLineUpComplete(serieALineUp, championsCupLineUp) {
     }
 }
 
-function validateLineUp(serieALineUp) {
-    serieALineUp = serieALineUp.replace(/ +/g, "");
-    serieALineUp = serieALineUp.replace(/(\r\n|\n|\r|,)/gm, "-");
-    var array = serieALineUp.split("-");
+function validateLineUp(lineUp) {
+    lineUp = lineUp.replace(/ +/g, "");
+    lineUp = lineUp.replace(/(\r\n|\n|\r|,)/gm, "-");
+    var array = lineUp.split("-");
     var filtered = array.filter((el) => {
         return el != "";
     });
